@@ -1,0 +1,20 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    var logoItem = Umbraco.Media(Guid.Parse("277e2c03-3b07-4fe8-85fa-6721c278f99d"));
+    string logoUrl = string.Empty;
+    if (logoItem != null)
+    {
+        logoUrl = logoItem.Url();
+    }
+}
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo">
+            <img src="@logoUrl" alt="Currecny Exchanger"   style="height:40px;width:auto;"/>
+        </a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="home">Home</a></li>
+            <li><a href="aboutus">About Us</a></li>
+        </ul>
+     </div>
+</nav>

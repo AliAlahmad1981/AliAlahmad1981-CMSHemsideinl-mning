@@ -1,0 +1,32 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = null;
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Currency Exchanger</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+     
+</head>
+<body  style="height:100vh;margin:0;display:flex;flex-direction:column;">
+	@await Html.PartialAsync("navbar");
+	<!-- This is where we're going to render our content -->
+	<div class="container" style="flex-grow:1;">
+		 @RenderBody()
+	</div>
+	<!-- Footer -->
+	@await Html.PartialAsync("footer")
+    <!--JavaScript at end of body for optimized loading-->  
+    <script src="~/js/materialize.min.js"></script>
+    <script src="~/js/init.js"></script>
+    @RenderSection("Scripts",false)
+ </body>
+</html>

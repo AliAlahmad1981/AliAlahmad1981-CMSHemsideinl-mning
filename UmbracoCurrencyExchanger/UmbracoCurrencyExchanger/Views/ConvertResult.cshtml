@@ -1,0 +1,33 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ConvertResult>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Layout.cshtml";
+}
+@await Html.PartialAsync("breadtext")
+<div class="container">
+    <div class="section">
+        <div class="row center">
+            <h1 class="header center orange-text" id="lblResult"></h1>
+        </div>
+    </div>
+</div>
+@section Scripts{
+<script>
+    var fromCurrency = '@(Context.Request.Query["from"])';
+    var toCurrency = '@(Context.Request.Query["to"])';
+    fetch('Umbraco/Api/Currency/Convert', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ from: fromCurrency, to: toCurrency })
+    })
+    .then(response => response.json())
+            .then(function (result)
+            { 
+                document.getElementById("lblResult").innerText ="1 " + fromCurrency + " = "+ result + " " + toCurrency;
+            });
+</script>
+}
