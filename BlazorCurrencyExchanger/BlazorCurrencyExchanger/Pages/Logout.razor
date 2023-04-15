@@ -1,0 +1,13 @@
+﻿@page "/logout"
+@inject NavigationManager UriHelper
+@inject CurrencyExchangerService CurrencyExchangerService
+<h3>Logging Out ......</h3>
+
+@code {
+    protected override async  Task OnInitializedAsync()
+    {
+        await CurrencyExchangerService.LogoutAsync();
+        await base.OnInitializedAsync();
+        UriHelper.NavigateTo("/");
+    }
+}

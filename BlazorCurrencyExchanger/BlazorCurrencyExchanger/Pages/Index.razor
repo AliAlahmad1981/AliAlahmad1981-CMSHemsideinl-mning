@@ -1,0 +1,93 @@
+﻿@page "/"
+@inject CurrencyExchangerService CurrencyExchangerService
+@inject CurrencyService CurrencyService
+@inject IJSRuntime JSRuntime
+@inject NavigationManager UriHelper
+@code {
+
+    public IEnumerable<Currency>? Currencies { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        Currencies = await CurrencyService.GetCurrenciesAsync();
+        await base.OnInitializedAsync();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+        await JSRuntime.InvokeVoidAsync("init");
+    }
+
+    private async void OnConvertAsync()
+    {
+        string from = await JSRuntime.InvokeAsync<string>("getSelectValue", "lstFromCurrency");
+        string to = await JSRuntime.InvokeAsync<string>("getSelectValue", "lstToCurrency");
+        UriHelper.NavigateTo($"convertresult/{from}/{to}");
+    }
+
+    private async void OnAddToListAsync()
+    {
+        string from = await JSRuntime.InvokeAsync<string>("getSelectValue", "lstFromCurrency");
+        string to = await JSRuntime.InvokeAsync<string>("getSelectValue", "lstToCurrency");
+        await CurrencyExchangerService.AddToListAsync(from, to);
+    }
+}
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <br><br>
+        <h1 class="header center orange-text">Currency Exchanger</h1>
+        <div class="row center">
+            <h5 class="header col s12 light">An easy , free currency converter</h5>
+        </div>
+
+        <br><br>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="section">
+
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <select id="lstFromCurrency">
+
+                            @foreach (var currency in Currencies)
+                            {
+                                <option value="@currency.Code">@string.Format("{0} ({1})", currency.Code , currency.Name)</option>
+                            }
+                        </select>
+                        <label>From</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <select id="lstToCurrency">
+
+                            @foreach (var currency in Currencies)
+                            {
+                                <option value="@currency.Code">@string.Format("{0} ({1})", currency.Code , currency.Name)</option>
+                            }
+                        </select>
+                        <label>To</label>
+                    </div>
+                </div>
+                <div class="row center"></div>
+                <div class="row">
+                    <div class="col s6 ">
+                        @if (CurrencyExchangerService.User != null)
+                        {
+                            <button @onclick="OnAddToListAsync" @onclick:preventDefault="true" class="btn-large waves-effect waves-light orange">Add To List</button>
+                        }
+                    </div>
+                    <div class="col s6 ">
+                        <button @onclick="OnConvertAsync" class="btn-large waves-effect waves-light orange right">Convert</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <br><br>
+</div>
+

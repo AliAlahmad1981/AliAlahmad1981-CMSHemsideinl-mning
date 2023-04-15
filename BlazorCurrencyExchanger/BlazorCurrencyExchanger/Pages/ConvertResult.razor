@@ -1,0 +1,36 @@
+﻿@page "/convertresult/{From}/{To}"
+@inject CurrencyService CurrencyService
+@code {
+
+    [Parameter]
+    public string From { get; set; }
+    [Parameter]
+    public string To { get; set; }
+
+    public decimal Rate { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Rate = await CurrencyService.GetExchangeRateAsync(From, To);
+        await base.OnInitializedAsync();
+    }
+}
+
+<nav>
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="#!" class="breadcrumb">Convert Result</a>
+            <a href="#!" class="breadcrumb">@From</a>
+            <a href="#!" class="breadcrumb">@To</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="section">
+        <div class="row center">
+            <h1 class="header center orange-text">
+                @string.Format("1 {0} = {1} {2}" ,From , Rate , To)
+            </h1>
+        </div>
+    </div>
+</div>

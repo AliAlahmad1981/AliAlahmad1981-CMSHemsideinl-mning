@@ -1,0 +1,77 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\CMS\\BlazorCurrencyExchanger\\BlazorCurrencyExchanger\\bin\\Debug\\net7.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\CMS\\BlazorCurrencyExchanger\\BlazorCurrencyExchanger\\obj\\Debug\\net7.0\\build-gz\\SaeiqYO9.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\CMS\\BlazorCurrencyExchanger\\BlazorCurrencyExchanger\\obj\\Debug\\net7.0\\scopedcss\\bundle\\BlazorCurrencyExchanger.styles.css",
+      "PackagePath": "staticwebassets\\BlazorCurrencyExchanger.styles.css"
+    },
+    {
+      "Id": "C:\\CMS\\BlazorCurrencyExchanger\\BlazorCurrencyExchanger\\wwwroot\\assets\\favicon.ico",
+      "PackagePath": "staticwebassets\\assets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\CMS\\BlazorCurrencyExchanger\\BlazorCurrencyExchanger\\wwwroot\\assets\\img\\logo.png",
+      "PackagePath": "staticwebassets\\assets\\img\\logo.png"
+    },
+    {
+      "Id": "C:\\CMS\\BlazorCurrencyExchanger\\BlazorCurrencyExchanger\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\CMS\\BlazorCurrencyExchanger\\BlazorCurrencyExchanger\\wwwroot\\css\\materialize.css",
+      "PackagePath": "staticwebassets\\css\\materialize.css"
+    },
+    {
+      "Id": "C:\\CMS\\BlazorCurrencyExchanger\\BlazorCurrencyExchanger\\wwwroot\\css\\materialize.min.css",
+      "PackagePath": "staticwebassets\\css\\materialize.min.css"
+    },
+    {
+      "Id": "C:\\CMS\\BlazorCurrencyExchanger\\BlazorCurrencyExchanger\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\CMS\\BlazorCurrencyExchanger\\BlazorCurrencyExchanger\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "C:\\CMS\\BlazorCurrencyExchanger\\BlazorCurrencyExchanger\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\CMS\\BlazorCurrencyExchanger\\BlazorCurrencyExchanger\\wwwroot\\js\\init.js",
+      "PackagePath": "staticwebassets\\js\\init.js"
+    },
+    {
+      "Id": "C:\\CMS\\BlazorCurrencyExchanger\\BlazorCurrencyExchanger\\wwwroot\\js\\materialize.js",
+      "PackagePath": "staticwebassets\\js\\materialize.js"
+    },
+    {
+      "Id": "C:\\CMS\\BlazorCurrencyExchanger\\BlazorCurrencyExchanger\\wwwroot\\js\\materialize.min.js",
+      "PackagePath": "staticwebassets\\js\\materialize.min.js"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.BlazorCurrencyExchanger.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.BlazorCurrencyExchanger.props",
+      "PackagePath": "build\\BlazorCurrencyExchanger.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.BlazorCurrencyExchanger.props",
+      "PackagePath": "buildMultiTargeting\\BlazorCurrencyExchanger.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.BlazorCurrencyExchanger.props",
+      "PackagePath": "buildTransitive\\BlazorCurrencyExchanger.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

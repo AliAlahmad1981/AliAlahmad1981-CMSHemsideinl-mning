@@ -1,0 +1,35 @@
+﻿@inject CurrencyExchangerService CurrencyExchangerService
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo">
+            <img src="/assets/img/logo.png" alt="Currecny Exchanger" style="height:40px;width:auto;" />
+        </a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+            <li><a href="aboutus">About Us</a></li>
+            @if (CurrencyExchangerService.User == null)
+            {
+                <li><a href="login">Login</a></li>
+                <li><a href="register">Register</a></li>
+            }
+            else
+            {
+                <li><a href="mylist">My List</a></li>
+                <li><a href="logout">Logout</a></li>
+            }
+        </ul>
+    </div>
+</nav>
+@code {
+    protected override Task OnInitializedAsync()
+    {
+        CurrencyExchangerService.AuthenticationChanged += OnAuthenticationChanged;
+        return base.OnInitializedAsync();
+    }
+
+    private void OnAuthenticationChanged(object sender , EventArgs args)
+    {
+        StateHasChanged();
+    }
+    
+}

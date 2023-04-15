@@ -1,0 +1,48 @@
+﻿@page "/mylist"
+@inject CurrencyService CurrencyService
+@inject CurrencyExchangerService CurrencyExchangerService
+<h3>MyList</h3>
+<div class="row center">
+<table>
+    <thead>
+        <tr>
+            <th>Currency A</th>
+            <th>Currency B</th>
+            <th>Exchange Rate</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(CurrencyPair pair in currencyPairs)
+        {
+        <tr>
+            <td>@pair.currencyA</td>
+            <td>@pair.currencyB</td>
+            <td>@pair.ExchangeRate</td>
+            <td><button @onclick="()=>OnRemoveItemAsync(pair)" @onclick:preventDefault="true" class="waves-effect waves-light btn-small red">Remove</button></td>
+        </tr>
+        }
+    </tbody>
+</table>
+</div>
+@code {
+
+    private List<CurrencyPair> currencyPairs;
+    protected override async Task OnInitializedAsync()
+    {
+        currencyPairs = await CurrencyExchangerService.GetUserList();
+        foreach (CurrencyPair pair in currencyPairs)
+        {
+            pair.ExchangeRate = await CurrencyService.GetExchangeRateAsync(pair.currencyA, pair.currencyB);
+        }
+        await base.OnInitializedAsync();
+    }
+
+    private async void OnRemoveItemAsync(CurrencyPair pair)
+    {
+        await CurrencyExchangerService.RemoveFromListAsync(pair.Id);
+        currencyPairs.Remove(pair);
+        StateHasChanged();
+    }
+}
